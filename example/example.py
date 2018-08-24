@@ -36,7 +36,7 @@ def main():
     es.synchronise()
     # write our files for each modality
     es.write_combined_files(save_loc=save_loc,
-                            suffix='session_3_synced')
+                            suffix='_session_3_synced')
 
 
 if __name__ == '__main__':
