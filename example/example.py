@@ -9,9 +9,9 @@ def main():
     password = ''
 
     # date of the recordings to download
-    date = '12/07/18'
+    date = '28/06/18'
     # the time of the sync event
-    event_time = 1531382732
+    event_time = 1530173665
     # where to save the data downloaded
     save_loc = 'data'
 

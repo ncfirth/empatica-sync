@@ -56,3 +56,9 @@ docs/_build/
 
 # PyBuilder
 target/
+
+# All data
+example/data/*
+
+# All jupyter notebooks - TEMP
+*.ipynb

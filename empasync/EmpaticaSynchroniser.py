@@ -2,6 +2,7 @@ import pandas as pd
 from matplotlib import pyplot as plt
 import numpy as np
 import os
+from zipfile import ZipFile
 
 
 class EmpaticaSynchroniser(object):
@@ -21,8 +22,9 @@ class EmpaticaSynchroniser(object):
             if os.path.exists(f'{save_loc}{dev_id}_{session_id}'):
                 continue
             os.mkdir(f'{save_loc}{dev_id}_{session_id}')
-            os.system((f'unzip -d {save_loc}{dev_id}_{session_id} '
-                       f'{save_loc}{dev_id}_{session_id}.zip'))
+            zf = ZipFile(f'{save_loc}{dev_id}_{session_id}.zip')
+            zf.extractall(f'{save_loc}{dev_id}_{session_id}')
+            zf.close()
 
     def create_session_df(self, event_time, window=5, save_loc=''):
         df = self.empatica_sessions
