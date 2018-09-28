@@ -75,6 +75,9 @@ class EmpaticaSynchroniser(object):
 
     def get_time_shifts(self, max_shift=75):
         session_df = self.session_df
+        fig, ax = plt.subplots()
+        for i in range(session_df.shape[1]):
+            ax.plot(session_df.iloc[:, i], alpha=0.5)
         raw_values = session_df.values.copy()
         raw_values = np.abs(np.diff(raw_values, axis=0))
         distances = raw_values - np.median(raw_values, axis=1).reshape(-1, 1)

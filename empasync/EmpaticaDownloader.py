@@ -54,3 +54,12 @@ class EmpaticaDownloader(object):
                     for chunk in res.iter_content(chunk_size=1024):
                         if chunk:
                             f.write(chunk)
+
+    def exclude_data(self, exclude_devices=[], exclude_sessions=[],
+                     duration_min=0):
+        df = self.empatica_sessions
+        df = df[~df.device_id.isin(exclude_devices)]
+        df = df[~df.id.isin(exclude_sessions)]
+        df = df[df.duration > duration_min]
+        self.exclude_sessions = df
+        return df
